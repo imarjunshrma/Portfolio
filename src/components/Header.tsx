@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import Sidebar from './Sidebar';
 import { MenuItems } from '@/bin/data';
+import { uuid } from '@/lib/randomId';
 const Header = () => {
     const [isOpenSidebar, setIsOpenSidebar] = useState(false);
     const toogleSidebar = () => {
@@ -55,6 +56,7 @@ const Header = () => {
                                     offset={-60}
                                     duration={500}
                                     className='cursor-pointer'
+                                    key={uuid()}
                                 >
                                     {val.item}
                                 </Link>

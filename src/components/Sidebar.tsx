@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { AiOutlineHome } from 'react-icons/ai'
 import { MenuItems } from "@/bin/data";
+import { uuid } from "@/lib/randomId";
 const Sidebar = ({ toogleSidebar }: { toogleSidebar: () => void }) => {
 
     return (
@@ -24,7 +25,7 @@ const Sidebar = ({ toogleSidebar }: { toogleSidebar: () => void }) => {
             <ul className="flex flex-col gap-5 list-none grow-[4] mt-[40px]">
                 {
                     MenuItems.map((val) => (
-                        <li className=" border-b border-black pb-[30px] flex gap-[10px] items-center">
+                        <li className=" border-b border-black pb-[30px] flex gap-[10px] items-center" key={uuid()}>
                             {/* <Home /> */}
                             <AiOutlineHome />
                             <Link

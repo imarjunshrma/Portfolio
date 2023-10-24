@@ -1,39 +1,41 @@
 "use client"
 import { Brush, Code } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { ArrowLeft, ArrowRight, Apple } from 'lucide-react';
+import { uuid } from "@/lib/randomId";
 
 const handleDragStart = (e: React.DragEvent<HTMLImageElement>) => e.preventDefault();
 const itemsList = [
-    <div className="card group" onDragStart={handleDragStart} role="presentation" >
+    <div className="card group" onDragStart={handleDragStart} role="presentation" key={uuid()}>
         <Brush size={50} color='#8490FF' className='group-hover:stroke-white' />
         <h3>Web Design</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quia sunt, quasi quo illo enim.</p>
     </div>,
-    <div className="card group" onDragStart={handleDragStart} role="presentation" >
+    <div className="card group" onDragStart={handleDragStart} role="presentation" key={uuid()}>
         <Apple size={50} color='#8490FF' className='group-hover:stroke-white' />
         <h3>IOS Developer</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quia sunt, quasi quo illo enim.</p>
     </div>,
-    <div className="card group" onDragStart={handleDragStart} role="presentation" >
+    <div className="card group" onDragStart={handleDragStart} role="presentation" key={uuid()}>
         <Code size={50} color='#8490FF' className='group-hover:stroke-white' />
         <h3>Apps Design</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quia sunt, quasi quo illo enim.</p>
     </div>,
-    <div className="card group" onDragStart={handleDragStart} role="presentation" >
+    <div className="card group" onDragStart={handleDragStart} role="presentation" key={uuid()}>
         <Brush size={50} color='#8490FF' className='group-hover:stroke-white' />
         <h3>Web Design</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quia sunt, quasi quo illo enim.</p>
     </div>,
-    <div className="card group" onDragStart={handleDragStart} role="presentation" >
+    <div className="card group" onDragStart={handleDragStart} role="presentation" key={uuid()}>
         <Brush size={50} color='#8490FF' className='group-hover:stroke-white' />
         <h3>Web Design</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem quia sunt, quasi quo illo enim.</p>
     </div>,
 ];
-const services = () => {
+
+const Services = () => {
     const carousel = useRef<AliceCarousel>(null);
     const [items, setItems] = useState<React.JSX.Element[]>()
     const updateSlide = (e: any, x: any) => {
@@ -45,6 +47,7 @@ const services = () => {
     }
     useEffect(() => {
         setItems(itemsList)
+
     }, [])
     return (
         <div className='bg-[#111] text-white' id="services_section">
@@ -86,4 +89,4 @@ const services = () => {
     )
 };
 
-export default services;
+export default Services;

@@ -3,12 +3,19 @@
 
 import { Button } from './ui/button';
 import Link from 'next/link';
+import Image from 'next/image'
+import heroImage from '@/assets/hero2.png'
 const About = () => {
     return (
         <div className="aboutSection" id='about_section'>
-            <div className="section md:grid grid-cols-2 ">
+            <div className="section md:grid grid-cols-2 " >
                 <div className="lhs hidden md:block">
-                    <img src="/hero2.png" alt="" className='w-[60%]' />
+                    {/* <img src="/hero2.png" alt="" className='w-[60%]' /> */}
+                    <Image
+                        src={heroImage}
+                        alt='heroImage'
+                        className='w-[60%]'
+                    />
                 </div>
                 <div className="rhs">
                     <div className='mt-[40px] flex flex-col gap-5'>

@@ -1,7 +1,9 @@
 import React from "react";
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-scroll';
+import Image from 'next/image'
 import Typewriter from 'typewriter-effect';
+import heroImage from '@/assets/hero2.png'
 const HeroSection = () => {
     return (
         <>
@@ -41,7 +43,13 @@ const HeroSection = () => {
                         </div>
                     </div>
                     <div className="rhs hidden md:block">
-                        <img src="/hero2.png" alt="" className='w-[60%] ms-auto' />
+                        {/* <img src="/hero2.png" alt="" className='w-[60%] ms-auto' /> */}
+                        <Image
+                            src={heroImage}
+                            alt='heroImage'
+                            className="w-[60%] ms-auto"
+                        // width={1000}
+                        />
                     </div>
                 </div>
             </div>
