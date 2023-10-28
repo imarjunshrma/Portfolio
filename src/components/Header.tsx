@@ -1,9 +1,13 @@
+"use client"
 import { Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import Sidebar from './Sidebar';
 import { MenuItems } from '@/bin/data';
 import { uuid } from '@/lib/randomId';
+import ScrollProgress from './ScrollProgress';
+import logo from '@/assets/logo.png.webp';
+import Image from 'next/image';
 const Header = () => {
     const [isOpenSidebar, setIsOpenSidebar] = useState(false);
     const toogleSidebar = () => {
@@ -12,12 +16,9 @@ const Header = () => {
     const [isSticky, setIsSticky] = useState(false);
     const onScroll = () => {
         if (window.scrollY > 30) {
-            // console.log(window.scrollY)
             setIsSticky(true);
-            // document.body.style.marginTop = "60px";
         } else {
             setIsSticky(false);
-            // document.body.style.removeProperty("margin-top");
         }
     }
     useEffect(() => {
@@ -32,14 +33,15 @@ const Header = () => {
             <header className="bg-white bi
         header
         "
-                style={isSticky ? { position: "fixed", top: 0, left: 0, right: 0, width: "100%", zIndex: 9999, boxShadow: "-21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3)" } : { position: "relative" }}
+                style={isSticky ? { position: "fixed", top: 0, left: 0, right: 0, width: "100%", zIndex: 9, boxShadow: "-21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3)" } : { position: "relative" }}
+                id='headerContainer'
             >
                 <nav className='flex justify-between md:w-[1200px] w-full md:mx-auto items:center  h-[60px] p-[10px]'>
 
 
                     {/* icon */}
                     <div className="icon">
-                        <img src="/logo.png.webp" alt="" />
+                        <Image src={logo} alt='logo' />
                     </div>
                     <div className="mobile-menu md:hidden cursor-pointer" onClick={toogleSidebar}>
                         <Menu />
@@ -47,7 +49,6 @@ const Header = () => {
                     <ul className="hidden md:flex gap-5 list-none items-center">
                         {
                             MenuItems.map((val) => (
-                                // <li>{items}</li>
                                 <Link
                                     activeClass="isActive"
                                     to={val.sectionId}
@@ -62,11 +63,9 @@ const Header = () => {
                                 </Link>
                             ))
                         }
-
-                        {/* <li >About</li>
-                    <li>Services</li> */}
                     </ul>
                 </nav>
+                <ScrollProgress />
             </header>
             {
                 isOpenSidebar ? <Sidebar toogleSidebar={toogleSidebar} /> : ""

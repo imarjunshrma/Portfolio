@@ -1,6 +1,5 @@
 import { User, MapPin, Mail } from "lucide-react";
 import React from "react";
-
 import ContactForm from "./ContactForm";
 const Contact = () => {
 

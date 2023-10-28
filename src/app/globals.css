@@ -136,3 +136,12 @@
 .alice-carousel__stage-item {
   @apply px-[10px] !important;
 }
+
+#nprogress .bar {
+  /* @apply top-[calc(100%+10px)] !important; */
+  @apply top-[97%] !important;
+}
+
+#nprogress .peg {
+  @apply shadow-none !important;
+}

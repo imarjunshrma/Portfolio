@@ -14,7 +14,6 @@ const ContactForm = () => {
     const [msg, setMsg] = useState("");
     const [subject, setSubject] = useState("");
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        console.log(publicKey, serviceId, templateId)
         e.preventDefault();
         emailjs.send(serviceId, templateId, { name, email, msg, subject }, publicKey).then((res) => {
             toast("Message Send Successfully");
